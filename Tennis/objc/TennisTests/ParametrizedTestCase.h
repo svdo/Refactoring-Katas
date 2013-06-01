@@ -11,7 +11,9 @@
 
 
 @interface ParametrizedTestCase : SenTestCase
+@property (nonatomic,strong) NSArray * testData;
 + (void)addTestWithTestData:(NSArray *)testData toTestSuite:(SenTestSuite *)testSuite;
 + (NSArray *)testDataSet;
 - (id)initWithInvocation:(NSInvocation *)anInvocation testData:(NSArray *)testData;
+- (NSString *)descriptionOfTestDataForTestName:(NSArray *)testData;
 @end

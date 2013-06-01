@@ -41,7 +41,20 @@
 }
 
 - (id)initWithInvocation:(NSInvocation *)anInvocation testData:(NSArray *)testData {
+    self.testData = testData;
     return [super initWithInvocation:anInvocation];
+}
+
+- (NSString *)name {
+    NSString * testDataDescription = [self descriptionOfTestDataForTestName:self.testData];
+    if (!testDataDescription) return [super name];
+
+    NSString *parametersDescription = [NSString stringWithFormat:@" %@]", testDataDescription];
+    return [[super name] stringByReplacingOccurrencesOfString:@"]" withString:parametersDescription];
+}
+
+- (NSString *)descriptionOfTestDataForTestName:(NSArray *)testData {
+    return nil;
 }
 
 @end

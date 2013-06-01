@@ -5,13 +5,12 @@
 #import "TennisGame3.h"
 
 @interface TennisTests()
+@property(nonatomic, readonly) int player1Score;
+@property(nonatomic, readonly) int player2Score;
+@property(nonatomic, readonly) NSString *expectedScore;
 @end
 
-@implementation TennisTests {
-    int player1Score;
-    int player2Score;
-    NSString *expectedScore;
-}
+@implementation TennisTests
 
 + (NSArray*)testDataSet {
     return @[
@@ -56,30 +55,23 @@
     ];
 }
 
-- (id)initWithInvocation:(NSInvocation *)invocation testData:(NSArray *)testData {
-    self = [super initWithInvocation:invocation];
-    if (self) {
-        player1Score = [testData[0] intValue];
-        player2Score = [testData[1] intValue];
-        expectedScore = testData[2];
-    }
-    return self;
-}
+- (int)player1Score { return [self.testData[0] intValue]; }
+- (int)player2Score { return [self.testData[1] intValue]; }
+- (NSString *)expectedScore { return self.testData[2]; }
 
-- (NSString *)name {
-    NSString *parametersDescription = [NSString stringWithFormat:@" (%d,%d,%@)]", player1Score, player2Score, expectedScore];
-    return [[super name] stringByReplacingOccurrencesOfString:@"]" withString:parametersDescription];
+- (NSString *)descriptionOfTestDataForTestName:(NSArray *)testData {
+    return [NSString stringWithFormat:@"(%d,%d,%@)", self.player1Score, self.player2Score, self.expectedScore];
 }
 
 - (void)checkAllScoresForGame:(TennisGame *)game {
-    int highestScore = MAX(player1Score, player2Score);
+    int highestScore = MAX(self.player1Score, self.player2Score);
     for (int i = 0; i < highestScore; i++) {
-        if (i < player1Score)
+        if (i < self.player1Score)
             [game wonPoint:@"player1"];
-        if (i < player2Score)
+        if (i < self.player2Score)
             [game wonPoint:@"player2"];
     }
-    STAssertEqualObjects([game score], expectedScore, @"");
+    STAssertEqualObjects([game score], self.expectedScore, @"");
 }
 
 - (void)testAllScoresTennisGame1 {
