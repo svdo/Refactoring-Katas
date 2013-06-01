@@ -1,5 +1,6 @@
 #import <SenTestingKit/SenTestingKit.h>
+#import <Foundation/Foundation.h>
+#import "ParametrizedTestCase.h"
 
-@interface TennisTests : SenTestCase
-- (id)initWithInvocation:(NSInvocation *)invocation scores:(NSArray *)scores;
+@interface TennisTests : ParametrizedTestCase
 @end

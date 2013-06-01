@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CACF62416A426F94680553E0 /* ParametrizedTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = CACF63A4DC43746823645FBC /* ParametrizedTestCase.m */; };
 		CACF63F14142F5803F786695 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACF69F4ABB8AC23884C74C3 /* Foundation.framework */; };
 		CACF6414A388566B43A9BCB5 /* TennisGame.m in Sources */ = {isa = PBXBuildFile; fileRef = CACF649AAFA398A61A600CB7 /* TennisGame.m */; };
 		CACF66A873EB3C4C2A1B7D78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACF6C52F7301D6A288FECCA /* UIKit.framework */; };
@@ -19,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		CACF61291A7012C7769FCE61 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CACF623F2485DDC203F37348 /* ParametrizedTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParametrizedTestCase.h; sourceTree = "<group>"; };
+		CACF63A4DC43746823645FBC /* ParametrizedTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParametrizedTestCase.m; sourceTree = "<group>"; };
 		CACF6419833B61F7E3D89075 /* TennisGame3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TennisGame3.h; sourceTree = "<group>"; };
 		CACF649AAFA398A61A600CB7 /* TennisGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TennisGame.m; sourceTree = "<group>"; };
 		CACF64EDAB086A5F18E393EE /* TennisGame2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TennisGame2.m; sourceTree = "<group>"; };
@@ -75,6 +78,8 @@
 			children = (
 				CACF6A4205D54CCF3AEA2B65 /* TennisTests.h */,
 				CACF6D897D4F49BCD1B41947 /* TennisTests.m */,
+				CACF63A4DC43746823645FBC /* ParametrizedTestCase.m */,
+				CACF623F2485DDC203F37348 /* ParametrizedTestCase.h */,
 			);
 			path = TennisTests;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				CACF6E1993921B2EC1995F0E /* TennisGame2.m in Sources */,
 				CACF6871FE27A26189B71C29 /* TennisGame1.m in Sources */,
 				CACF6414A388566B43A9BCB5 /* TennisGame.m in Sources */,
+				CACF62416A426F94680553E0 /* ParametrizedTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

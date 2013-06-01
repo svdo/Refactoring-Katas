@@ -5,27 +5,6 @@
 #import "TennisGame3.h"
 
 @interface TennisTests()
-+ (NSArray*)parameters;
-@end
-
-@implementation TennisTests (Parametrized)
-+ (id)defaultTestSuite {
-    SenTestSuite *testSuite = [[SenTestSuite alloc] initWithName:NSStringFromClass(self)];
-
-    NSArray *allScores = [self parameters];
-    for (NSArray *scores in allScores) {
-        [self addTestWithScores:scores toTestSuite:testSuite];
-    }
-
-    return testSuite;
-}
-+ (void)addTestWithScores:(NSArray *)scores toTestSuite:(SenTestSuite *)testSuite {
-    NSArray *testInvocations = [self testInvocations];
-    for (NSInvocation *testInvocation in testInvocations) {
-        SenTestCase *test = [[TennisTests alloc] initWithInvocation:testInvocation scores:scores];
-        [testSuite addTest:test];
-    }
-}
 @end
 
 @implementation TennisTests {
@@ -34,7 +13,7 @@
     NSString *expectedScore;
 }
 
-+ (NSArray*)parameters {
++ (NSArray*)testDataSet {
     return @[
             @[ @0, @0, @"Love-All"],
             @[ @1, @1, @"Fifteen-All"],
@@ -77,12 +56,12 @@
     ];
 }
 
-- (id)initWithInvocation:(NSInvocation *)invocation scores:(NSArray *)scores {
+- (id)initWithInvocation:(NSInvocation *)invocation testData:(NSArray *)testData {
     self = [super initWithInvocation:invocation];
     if (self) {
-        player1Score = [scores[0] intValue];
-        player2Score = [scores[1] intValue];
-        expectedScore = scores[2];
+        player1Score = [testData[0] intValue];
+        player2Score = [testData[1] intValue];
+        expectedScore = testData[2];
     }
     return self;
 }
