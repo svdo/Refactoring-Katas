@@ -1,21 +1,21 @@
 #import "TennisGame1.h"
+#import "Player.h"
 
 @interface TennisGame1 ()
-@property(nonatomic, copy) NSString *player1;
-@property(nonatomic, copy) NSString *player2;
+@property(nonatomic, strong) Player *player1;
+@property(nonatomic, strong) Player *player2;
 @end
 
 @implementation TennisGame1 {
-    int score1;
     int score2;
 }
 
-- (id)initWithPlayer1:(NSString *)player1 player2:(NSString *)player2 {
+- (id)initWithPlayer1:(NSString *)player1name player2:(NSString *)player2name {
     self = [super init];
     if (self) {
-        self.player1 = player1;
-        self.player2 = player2;
-        score1 = 0;
+        self.player1 = [[Player alloc] initWithName:player1name];
+        self.player2 = [[Player alloc] initWithName:player2name];
+        self.player1.score = 0;
         score2 = 0;
     }
 
@@ -23,8 +23,7 @@
 }
 
 - (void)wonPoint:(NSString *)playerName {
-    if ([playerName isEqualToString:@"player1"])
-        score1 += 1;
+    if ([playerName isEqualToString:self.player1.name]) {self.player1.score = 1;}
     else
         score2 += 1;
 }
@@ -32,9 +31,9 @@
 - (NSString *)score {
     NSString *score = @"";
     int tempScore=0;
-    if (score1 == score2)
+    if (self.score1 == score2)
     {
-        switch (score1)
+        switch (self.score1)
         {
             case 0:
                 score = @"Love-All";
@@ -54,19 +53,19 @@
 
         }
     }
-    else if (score1>=4 || score2>=4)
+    else if (self.score1 >=4 || score2>=4)
     {
-        int minusResult = score1-score2;
-        if (minusResult==1) score = @"Advantage player1";
-        else if (minusResult ==-1) score = @"Advantage player2";
-        else if (minusResult>=2) score = @"Win for player1";
-        else score = @"Win for player2";
+        int minusResult = (self.score1 -score2);
+        if (minusResult==1) {score = [NSString stringWithFormat:@"Advantage %@", self.player1.name];}
+        else if (minusResult ==-1) {score = [NSString stringWithFormat:@"Advantage %@", self.player2.name];}
+        else if (minusResult>=2) {score = [NSString stringWithFormat:@"Win for %@", self.player1.name];}
+        else {score = [NSString stringWithFormat:@"Win for %@", self.player2.name];}
     }
     else
     {
         for (int i=1; i<3; i++)
         {
-            if (i==1) tempScore = score1;
+            if (i==1) tempScore = self.score1;
             else { score = [NSString stringWithFormat:@"%@-", score]; tempScore = score2; }
             switch(tempScore)
             {
@@ -88,5 +87,8 @@
     return score;
 }
 
+- (int)score1 {
+    return self.player1.score;
+}
 
 @end
