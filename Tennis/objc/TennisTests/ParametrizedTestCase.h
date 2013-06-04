@@ -15,5 +15,5 @@
 + (void)addTestWithTestData:(NSArray *)testData toTestSuite:(SenTestSuite *)testSuite;
 + (NSArray *)testDataSet;
 - (id)initWithInvocation:(NSInvocation *)anInvocation testData:(NSArray *)testData;
-- (NSString *)descriptionOfTestDataForTestName:(NSArray *)testData;
+- (NSString *)descriptionOfTestDataInTestName:(NSArray *)testData;
 @end

@@ -46,14 +46,14 @@
 }
 
 - (NSString *)name {
-    NSString * testDataDescription = [self descriptionOfTestDataForTestName:self.testData];
+    NSString * testDataDescription = [self descriptionOfTestDataInTestName:self.testData];
     if (!testDataDescription) return [super name];
 
-    NSString *parametersDescription = [NSString stringWithFormat:@" %@]", testDataDescription];
+    NSString *parametersDescription = [NSString stringWithFormat:@"%@]", testDataDescription];
     return [[super name] stringByReplacingOccurrencesOfString:@"]" withString:parametersDescription];
 }
 
-- (NSString *)descriptionOfTestDataForTestName:(NSArray *)testData {
+- (NSString *)descriptionOfTestDataInTestName:(NSArray *)testData {
     return nil;
 }
 

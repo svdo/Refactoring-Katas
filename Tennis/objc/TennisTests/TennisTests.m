@@ -59,8 +59,8 @@
 - (int)player2Score { return [self.testData[1] intValue]; }
 - (NSString *)expectedScore { return self.testData[2]; }
 
-- (NSString *)descriptionOfTestDataForTestName:(NSArray *)testData {
-    return [NSString stringWithFormat:@"(%d,%d,%@)", self.player1Score, self.player2Score, self.expectedScore];
+- (NSString *)descriptionOfTestDataInTestName:(NSArray *)testData {
+    return [NSString stringWithFormat:@" (%d,%d,%@)", self.player1Score, self.player2Score, self.expectedScore];
 }
 
 - (void)checkAllScoresForGame:(TennisGame *)game {
